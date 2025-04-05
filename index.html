@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoHub | Premium Cars</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background: #fff;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .login-btn {
+            background: #3498db;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-filter {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: -50px auto 50px;
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .filter-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-item select, .filter-item input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .featured-cars {
+            padding: 2rem 5%;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .car-details {
+            padding: 1.5rem;
+        }
+
+        .car-price {
+            color: #3498db;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .search-filter {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="car-logo.png" alt="AutoHub">
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Inventory</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#login.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Car</h1>
+            <p>Explore our premium selection of vehicles</p>
+        </div>
+    </section>
+
+    <div class="search-filter">
+        <div class="filter-group">
+            <div class="filter-item">
+                <select>
+                    <option>Select Make</option>
+                    <option>BMW</option>
+                    <option>Mercedes</option>
+                    <option>Audi</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <select>
+                    <option>Select Price Range</option>
+                    <option>$20,000 - $50,000</option>
+                    <option>$50,000 - $100,000</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <select>
+                    <option>Vehicle Type</option>
+                    <option>SUV</option>
+                    <option>Sedan</option>
+                    <option>Sports</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <section class="featured-cars">
+        <h2>Featured Vehicles</h2>
+        <div class="cars-grid">
+            <div class="car-card">
+                <div class="car-image" style="background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e')"></div>
+                <div class="car-details">
+                    <h3>BMW X5 2023</h3>
+                    <p class="car-price">$65,000</p>
+                    <p>Automatic | 15,000 miles | Petrol</p>
+                    <button class="login-btn" style="margin-top: 1rem;">View Details</button>
+                </div>
+            </div>
+            <!-- Add more car cards here -->
+        </div>
+    </section>
+</body>
+</html>
