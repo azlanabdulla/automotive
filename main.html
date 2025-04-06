@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #1877f2;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background: #1877f2;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">My App</div>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </nav>
+
+    <div class="content">
+        <h1>Welcome to the Main Page</h1>
+        <p>You have successfully logged in!</p>
+    </div>
+
+    <script>
+        // Check authentication status
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'index.html';
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
